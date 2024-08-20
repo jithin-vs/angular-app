@@ -1,0 +1,46 @@
+<div class="container container-fluid">
+  <form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm">
+    <!-- Title input -->
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        id="title"
+        type="text"
+        class="form-control"
+        placeholder="Title"
+        maxlength="50"
+        required
+        ngModel name = "task"
+      />
+    </div>
+
+    <!-- Bottom actions -->
+    <div
+      class="card-footer mt-4 d-flex justify-content-between align-items-center"
+    >
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Task Name</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of taskArray; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ item.taskName }}</td>
+        <td></td>
+        <td>
+          <button id="deleteButton" class="btn btn-danger" (click) ="(onDelete(i))">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
