@@ -27,6 +27,7 @@ export class TaskListComponent {
       taskName:form.controls['task'].value,
       isCompleted:false,
     })
+    form.reset();
   }
 
   onDelete(index: number) {
