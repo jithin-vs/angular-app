@@ -29,7 +29,12 @@ export class TaskListComponent {
     })
     form.reset();
   }
-
+   
+  onChange(index: number) {
+    
+    this.taskArray[index].isCompleted = !this.taskArray[index].isCompleted;
+    console.log(this.taskArray);
+  }
   onDelete(index: number) {
     this.taskArray.splice(index, 1);
   }

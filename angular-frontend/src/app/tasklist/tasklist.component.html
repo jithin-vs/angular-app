@@ -10,7 +10,8 @@
         placeholder="Title"
         maxlength="50"
         required
-        ngModel name = "task"
+        ngModel
+        name="task"
       />
     </div>
 
@@ -34,9 +35,17 @@
       <tr *ngFor="let item of taskArray; let i = index">
         <th scope="row">{{ i + 1 }}</th>
         <td>{{ item.taskName }}</td>
-        <td></td>
         <td>
-          <button id="deleteButton" class="btn btn-danger" (click) ="(onDelete(i))">
+          <div>
+            <input class="form-check-input" type="checkbox" (change)="onChange(i)" id="checkboxNoLabel" value="" aria-label="...">
+          </div>
+        </td>
+        <td>
+          <button
+            id="deleteButton"
+            class="btn btn-danger"
+            (click)="onDelete(i)"
+          >
             Delete
           </button>
         </td>
